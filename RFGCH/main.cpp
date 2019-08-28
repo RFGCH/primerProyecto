@@ -44,11 +44,14 @@ int main()
     int u = 2;
     while(k<b){
         while(u<k){
-            if (k%u == 0 || ){
+            if (k%u == 0 ||  ){
                 cout << u;
                 }
             u++;
-        }
+         }
+        if(k<u){
+            cout << u;
+            }
         k++
     }
 
