@@ -2,6 +2,14 @@
 
 using namespace std;
 
+void separarDigitos(int a){
+ int b = a/10000;
+ int c = (a=a-(10000*b))/1000;
+ int d = (a=a-(1000*c))/100;
+ int e = (a=a-(100*d))/10;
+ a = a-(10*e)
+ cout
+
 int main()
 {
     //Primer problema
