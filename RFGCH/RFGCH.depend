@@ -1,4 +1,28 @@
 # depslib dependency file v1.0
-1567003664 source:d:\rfgch\main.cpp
+1568822287 source:d:\rfgch\main.cpp
 	<iostream>
+	"Punto.h"
+	"Vector.h"
+	"Matriz.h"
+
+1568818323 d:\rfgch\include\punto.h
+
+1568816498 source:d:\rfgch\src\punto.cpp
+	<iostream>
+	"Punto.h"
+
+1568818232 source:d:\rfgch\src\vector.cpp
+	"Vector.h"
+	"Punto.h"
+	<iostream>
+	<math.h>
+
+1568821667 d:\rfgch\include\vector.h
+	"Punto.h"
+
+1568822262 source:d:\rfgch\src\matriz.cpp
+	"Matriz.h"
+	<iostream>
+
+1568822262 d:\rfgch\include\matriz.h
 
