@@ -73,6 +73,39 @@ bool caracterVisceversa(char a){
     return false;
 }
 
+int binE(int a){
+
+    int b = 0;
+    int c = 1;
+    while(a){
+
+        int m = a;
+        m = a-(a/10)*10;
+        b += m*c;
+        c *= 2;
+        a /= 10;
+
+    }
+    return b;
+
+}
+
+int entB(int a){
+
+    int b = 0;
+    int c = 1;
+    while(a){
+
+        int m = a;
+        m = a-(a/2)*2;
+        b += m*c;
+        c *= 10;
+        a /= 2;
+
+    }
+    return b;
+
+}
 
 int main()
 {
@@ -135,6 +168,24 @@ int main()
         cout << "Es numero" << endl;
     }
 
+    //Segunda Tarea
+  //Primer ejercicio
+ 
+    int h;
+    cout << "Ingrese un numero binario : ";
+    cin >> h;
+    int i;
+    i = binE(h);
+    cout << "Su entero es : " << i << endl;
+
+  //Segundo ejercicio
+
+    int j;
+    cout << "Ingrese un numero entero : ";
+    cin >> j;
+    int k;
+    k = entB(j);
+    cout << "Su binario es : " << k << endl;
 
     return 0;
 }
