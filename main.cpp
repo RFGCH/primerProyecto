@@ -1,6 +1,17 @@
 #include <iostream>
 
 using namespace std;
+int divisores(){
+    a = 1000000;
+    int c=0;
+    while(a){
+        if (a%5 || a%3){
+            c+= a
+        }     
+        a--;
+    }
+return c;
+}
 
 int main()
 {
