@@ -27,23 +27,19 @@ int suma(int arr[],int t){
 }
 
 int sumar(int arr[],int t){
-    int c = arr[t-1];
-    cout << c << endl;
+    
     if (t==1)
         return arr[t-1];
-    return c += sumar(arr,t-1);
+    return arr[t-1] += sumar(arr,t-1);
 
 }
 
 void inv(int arr[], int t){
 
-    t--;
-
     for(int i=0;i<t/2;i++){
-        swap(arr[t],arr[i]);
-        t--;
+        swap(arr[--t],arr[i]);
     }
-
+    
 }
 
 int invr(int arr[], int t,int i=0){
