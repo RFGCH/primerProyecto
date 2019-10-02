@@ -28,9 +28,7 @@ int suma(int arr[],int t){
 
 int sumar(int arr[],int t){
 
-    if (t==1)
-        return arr[t-1];
-    return arr[t-1] += sumar(arr,t-1);
+    return (t==1) ? arr[t-1] : arr[t-1] += sumar(arr,t-1);
 
 }
 
@@ -43,8 +41,9 @@ void inv(int arr[], int t){
 
 void invr(int arr[], int t,int i=0){
 
-    if (!(t/2))
-        return swap(arr[t-1],arr[i]);
+    if(t<=i)
+         return;
+    swap(arr[t-1],arr[i]);
     return invr(arr,t-1,i+1);
 
 }
