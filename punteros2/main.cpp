@@ -77,11 +77,11 @@ void insercion(int arr[],int t){
 
     int c,a;
     for(int i=1;i<t;i++){
-        c=arr[i];
+        c=*(arr+i);
         a=i-1;
         while(a>=0 && arr[a]>c)
-            arr[a+1]=arr[a--];
-        arr[a+1]=c;
+            *(arr+a+1)=*(arr+a--);
+        *(arr+a+1)=c;
     }
 
 }
@@ -92,10 +92,10 @@ int particion(int arr[],int max,int min){
     int i=min-1;
 
     for(int j=i+1;j<=max-1;j++)
-        if(arr[j]<p)
-            swap(arr[++i],arr[j]);
+        if(*(arr+j)<p)
+            swap(*(++i+arr),*(arr+j));
 
-    swap(arr[i+1],arr[max]);
+    swap(*(arr+i+1),*(arr+max));
     return i+1;
 
 }
