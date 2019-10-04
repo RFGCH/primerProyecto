@@ -57,14 +57,20 @@ void invr(int arr[], int t,int i=0){
     return invr(++arr,t-1,i+1);
 
 }
-
 void burbuja(int arr[],int t){
 
-    for(int i=1;i<t;i++)
-        for(int j=0;j<t-i;j++)
-            if(arr[j]>arr[j+1])
-                swap(arr[j],arr[j+1]);
-
+    for(int i=1;i<t;i++){
+        int c=0;
+        int *pnt=arr+1;
+        for(int j=0;j<t-i;j++){
+            if(*arr<*pnt)
+                swap(*arr,*pnt);
+            arr++;
+            pnt++;
+            c++;
+        }
+        arr-=c;
+    }
 }
 
 void insercion(int arr[],int t){
