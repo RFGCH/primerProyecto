@@ -1,8 +1,0 @@
-# depslib dependency file v1.0
-1571235369 source:d:\eds\cadenas\main.cpp
-	<iostream>
-
-1571415024 source:d:\eds\cadenas\cadenas\main.cpp
-	<iostream>
-	<fstream>
-
