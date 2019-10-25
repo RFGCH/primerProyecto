@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1572015742 source:c:\users\alumno-g\proyecteoidjsw\main.cpp
+	<iostream>
+	<asf.h>
+	<asd.h>
+
+1572015275 c:\users\alumno-g\proyecteoidjsw\include\asf.h
+
+1572014376 source:c:\users\alumno-g\proyecteoidjsw\src\asf.cpp
+	"asf.h"
+	<iostream>
+
+1572015863 c:\users\alumno-g\proyecteoidjsw\include\asd.h
+	<asf.h>
+
+1572015687 source:c:\users\alumno-g\proyecteoidjsw\src\asd.cpp
+	"asd.h"
+	<iostream>
+
