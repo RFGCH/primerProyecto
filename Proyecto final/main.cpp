@@ -16,11 +16,16 @@ string ingresar(){
     cin >> nick;/*
     int leng = nick.length();
     if(leng > 8 || leng < 3){
-        cout << "\n  ***Ingrese un nick de entr 3 a 8 de longitud***" << endl;
+        cout << "\n  ***Ingrese un nick de entre 3 a 8 de longitud***" << endl;
+        return << ".";
+    }
+    cout << "\n   Password: ";
+    cin >> pass;/*
+    leng = pass.length();
+    if(leng > 8 || leng < 3){
+        cout << "\n  ***Ingrese un password de entre 3 a 8 de longitud***" << endl;
         return << ".";
     }*/
-    cout << "\n   Password: ";
-    cin >> pass;
     while (!ingresar.eof()){
         getline(ingresar,registro);
         if(nick==registro){
