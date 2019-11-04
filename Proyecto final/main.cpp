@@ -2,41 +2,119 @@
 #include <fstream>
 
 using namespace std;
-
-string registro(){
-
-    string nick,pass,registro;
-    cout << "\n\t-------Ingreso------\n" << endl;
-    cout << "Nick: ";
-    getline(cin,nick);
-    nick = "users//"+nick+".txt";
-
-    ifstream ingresar(nick.c_str());
+string ingresar(){
+    ifstream ingresar("Datos//users.txt");
     if(!ingresar){
-        cout << "No esta registrado\n" << endl;
-        return "0";
+        system("cls");
+        cout << "\n  ***No se a podido acceder a el archivo users***" << endl;
+        return ".";
     }
-    else{
-        bool exit = 1;
-        while(exit){
-
-            cout << "Password: ";
-            getline(cin,pass);
+    string nick,pass,registro;
+    cout << "\n ------  Ingreso  ------" << endl;
+    cout << "\n   Nick: ";
+    cin >> nick;
+    cout << "\n   Password: ";
+    cin >> pass;
+    while (!ingresar.eof()){
+        getline(ingresar,registro);
+        if(nick==registro){
             getline(ingresar,registro);
-            if(registro == pass){
-                cout << "Ingreasando...\n" << endl;
+            if(pass==registro){
+                system("cls");
+                cout << "Ingreso..."<< endl;
                 return nick;
             }
-            if(pass == "0"){
-                exit = 0;
-                return "0";
-            }
-            cout << "Su clave es errada\n" << endl;
-
+            system("cls");
+            cout << "Contraseña incorrecta" << endl;
+            return ".";
         }
+        getline(ingresar,registro);
     }
+    system("cls");
+    cout << "Usted no esta registrado" << endl;
+    return ".";
+
+    ingresar.close();
 
 }
+void registrarse(){
+    ifstream leer("Datos//users.txt");
+    ofstream registrar("Datos//aux.txt");
+    if(!leer){
+        system("cls");
+        cout << "\n  ***No se a podido acceder a el archivo users***" << endl;
+        return;
+    }
+    string nick,pass,registro;
+    cout << "\n ------  Registro  -----" << endl;
+    cout << "\n   *Presionar 1 para ir al menu*" << endl;
+    cout << "   *Presionar 2 para continuar*\n" << endl;
+    string ingreso;
+    cin >> ingreso;
+    if (ingreso=="1"){system("cls");return;}
+    cout << "\n   Nick: ";
+    cin >> nick;
+    cout << "\n   Password: ";
+    cin >> pass;
+    cout << (!leer.eof());
+    while (!leer.eof()){
+        getline(leer,registro);
+        if(nick==registro){
+                system("cls");
+            cout << "\n  ***El nombre de usuario ya esta registrado***"<< endl;
+            return registrarse();
+        }
+    }
+    while (!leer.eof()){
+        getline(leer,registro);
+        registrar << registro;
+    }
+}
+void opciones(){
+}
+void pedido(string nick){
+}
+void menu(){
+    system("color F0");
+    bool running;
+    int opcion;
+    running = true;
+    while(running){
+        cout << "\n ------  M  C  M  ------" << endl;
+        cout << "\n   1.- Ingresar" << endl;
+        cout << "\n   2.- Registrarse" << endl;
+        cout << "\n   3.- Opciones" << endl;
+        cout << "\n   4.- Salir" << endl;
+        cout << "\n   Ingresar su opcion: ";
+        cin >> opcion;
+        if(opcion == 1){
+            system("cls");
+            string a;
+            a = ingresar();
+            if(a != ".")
+                pedido(a);
+        }
+        else if(opcion == 2){
+            system("cls");
+            registrarse();
+        }
+        else if(opcion == 3){
+            system("cls");
+            opciones();
+        }
+        else if(opcion == 4){
+            system("cls");
+            cout << "Gracias por usar MCM" << endl;
+            running = false;
+        }
+        else{
+            system("cls");
+            cout << "***Reingrese una opcion valida de entre 1 y 4***" << endl;
+        }
+    }
+}
+
+/*
 void registrarse(){
 
     string nick,clave,user;
@@ -63,12 +141,12 @@ void print(string nick){
     ifstream asf(nick.c_str());
     getline(asf,asd);
 }
+*/
 int main()
 {
 
 
-    registro();
-    registrarse();
+    menu();
 
     return 0;
 }

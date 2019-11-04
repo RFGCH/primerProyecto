@@ -34,12 +34,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="include/menu.h" />
-		<Unit filename="include/registrarse.h" />
-		<Unit filename="include/registro.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="src/menu.cpp" />
-		<Unit filename="src/registro.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
