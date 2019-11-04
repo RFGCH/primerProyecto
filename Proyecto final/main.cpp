@@ -10,9 +10,15 @@ string ingresar(){
         return ".";
     }
     string nick,pass,registro;
+    
     cout << "\n ------  Ingreso  ------" << endl;
     cout << "\n   Nick: ";
-    cin >> nick;
+    cin >> nick;/*
+    int leng = nick.length();
+    if(leng > 8 || leng < 3){
+        cout << "\n  ***Ingrese un nick de entr 3 a 8 de longitud***" << endl;
+        return << ".";
+    }*/
     cout << "\n   Password: ";
     cin >> pass;
     while (!ingresar.eof()){
@@ -25,7 +31,7 @@ string ingresar(){
                 return nick;
             }
             system("cls");
-            cout << "Contraseña incorrecta" << endl;
+            cout << "ContraseÃ±a incorrecta" << endl;
             return ".";
         }
         getline(ingresar,registro);
