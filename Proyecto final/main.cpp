@@ -5,21 +5,61 @@
 
 using namespace std;
 class parrafo{
-    linea a
+
+    linea *a;
+    int cant;
+
+    parrafo(linea *a,int cant){
+        int cant = cant;
+        this -> a = new a[cant];
+        for(int i = cant-1; i >= 0 ; i--)
+            a[i]=*a++;
+        for(int i = cant-1; i >= 0 ; i--)
+            *a--;
+    }
 };
 class linea{
-    char letras[70];
+
+    char letras[50];
+
+
+};
+ifstream leer("Datos//maquina")
+int datos;
+getline(leer,datos);
+lista *ptr;
+while(datos--){
+    string dato;
+    getline(dato);
+    *ptr=dato;
+    ptr++;
+}
+class dnlist{
+
+};
+
+class MaquinaE:public Maquina{
+
+    dnlist *dato,*registro;
+
+    void print(){
+        while(datos--){
+            cout << "\n   " << *registro++ << ": " << *dato++ << endl;
+        }
+    }
 
 };
 class Maquina{
 
   private:
 
-    string nombre,codigo,clase,resumen,descripcion;
+    string nombre,codigo,clase;
+    int datos;
 
   public:
 
-    Maquina(string nombre, string codigo,string clase, string resumen,string descripcion){
+    Maquina(string nombre, string codigo,string clase, int datos){
+        this -> datos = datos;
         this ->nombre=nombre;
         this ->codigo=codigo;
         this ->clase=clase;
