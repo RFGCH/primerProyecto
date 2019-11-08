@@ -192,8 +192,8 @@ void ingresar(){
 void registrarse(){
 
     system("cls");
+    ofstream registrar("Datos//codigofacilito.txt");
     ifstream leer("Datos//users.txt");
-    ofstream registrar("aux.txt");
 
     if(!registrar){system("cls");cout << "\n  ***No se a podido acceder a el archivo users***" << endl;return;}
 
@@ -209,18 +209,19 @@ void registrarse(){
 
     while (!leer.eof()){
         getline(leer,registro);
-        registrar<<registro;
+        registrar<<registro + "\n";
     }
 
-    registrar << nick;
-    registrar << puesto;
-    registrar << pass;
-
-    remove("Datos//users.txt");
-    rename("Datos//aux.txt","Datos//users.txt");
+    registrar << nick+"\n";
+    registrar << puesto+"\n";
+    registrar << pass+"\n";
 
     leer.close();
     registrar.close();
+
+    remove("Datos//users.txt");
+    rename("Datos/codigofacilito.txt","Datos//users.txt");
+
 }
 void bienvenido(){
     system("color F0");
