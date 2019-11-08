@@ -4,67 +4,22 @@
 #include <string.h>
 
 using namespace std;
-class parrafo{
-
-    linea *a;
-    int cant;
-
-    parrafo(linea *a,int cant){
-        int cant = cant;
-        this -> a = new a[cant];
-        for(int i = cant-1; i >= 0 ; i--)
-            a[i]=*a++;
-        for(int i = cant-1; i >= 0 ; i--)
-            *a--;
-    }
-};
-class linea{
-
-    char letras[50];
-
-
-};
-ifstream leer("Datos//maquina")
-int datos;
-getline(leer,datos);
-lista *ptr;
-while(datos--){
-    string dato;
-    getline(dato);
-    *ptr=dato;
-    ptr++;
-}
-class dnlist{
-
-};
-
-class MaquinaE:public Maquina{
-
-    dnlist *dato,*registro;
-
-    void print(){
-        while(datos--){
-            cout << "\n   " << *registro++ << ": " << *dato++ << endl;
-        }
-    }
-
-};
+/*
 class Maquina{
 
   private:
 
     string nombre,codigo,clase;
-    int datos;
+    int datos,nro;
 
   public:
 
-    Maquina(string nombre, string codigo,string clase, int datos){
-        this -> datos = datos;
-        this ->nombre=nombre;
-        this ->codigo=codigo;
-        this ->clase=clase;
-        this ->resumen=resumen;
-        this ->descripcion=descripcion;
+    Maquina(int nro){
+        ifstream("Datos//maquinas");
+        getline(leer,nombre);
+        getline(leer,codigo);
+        getline(leer,clase);
+        getline(leer,datos);
     }
     //function get
     string getnombre()const{
@@ -112,6 +67,7 @@ class Maquina{
         cout << "\n  Descripcion: " << resumen << endl;
     }
 };
+*/
 void opciones(){
 }
 void pedido(string nick){
@@ -129,10 +85,26 @@ void Maquinas(string nick){
         cout << " " << resumen << "...\n" << endl;
     }
 }
-
+class Usuario{
+};
 void Perfil(string nick){
+    ifstream leer("Datos//maquinas.txt");
+    string usuario;
+    while(nick != usuario){
+        getline(leer,usuario);
+    }
+    Usuario nick();
 }
 void Usuarios(){
+    ifstream leer("Datos//users.txt");
+    while(!leer.eof()){
+        string registro;
+        getline(leer,registro);
+        cout << "\n   Nombre: " << registro << endl;
+        getline(leer,registro);
+        cout << "   Puesto: " << registro << endl;
+        getline(leer,registro);
+    }
 }
 string Menu(string nick){
     bool run = true;
@@ -279,37 +251,9 @@ void bienvenido(){
     }
 }
 
-/*
-void registrarse(){
 
-    string nick,clave,user;
-    cout << "\n\t------Registro------\n" << endl;
-    cout << "Ingrese su nick: ";
-    getline(cin,nick);
-    cout << "Ingrese su clave: ";
-    getline(cin,clave);
-    nick = "users//"+nick+".txt";
-    ofstream registrar(nick.c_str());
-    registrar << clave;
-    clave+="\n";
-    registrar.close();
-    cout << "Registrado con exito\n" << endl;
-}
-
-
-
-void editar(string &a,string &b){
-    rename(a.c_str(),b.c_str());
-}
-void print(string nick){
-    string asd;
-    ifstream asf(nick.c_str());
-    getline(asf,asd);
-}
-*/
 int main()
 {
-    Maquinas("Ruben");
 
     bienvenido();
 
