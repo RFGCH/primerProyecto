@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
-#include <stdlib.h>
-#include <string.h>
+#include <cstdlib>
+#include <string>
 
 using namespace std;
 /*
@@ -69,13 +69,16 @@ class Maquina{
 };
 */
 void opciones(){
+    system("cls");
 }
+
 void pedido(string nick){
 }
 void Maquinas(string nick){
+    system("cls");
     ifstream leer("Datos//maquinas.txt");
     if(leer.eof()){
-        cout << "No hay maquinas que mostrar" << endl;
+        cout << "\n  ***No hay maquinas que mostrar***" << endl;
     }
     while(!leer.eof()){
         string codigo,resumen;
@@ -84,18 +87,22 @@ void Maquinas(string nick){
         getline(leer,resumen);
         cout << " " << resumen << "...\n" << endl;
     }
+    cout << "\n Ingrese cualquier tecla... ";
+    string opc;
+    cin >> opc;
 }
-class Usuario{
-};
+
 void Perfil(string nick){
-    ifstream leer("Datos//maquinas.txt");
+
+    ifstream leer("Datos//users.txt");
     string usuario;
     while(nick != usuario){
         getline(leer,usuario);
     }
-    Usuario nick();
 }
+
 void Usuarios(){
+    system("cls");
     ifstream leer("Datos//users.txt");
     while(!leer.eof()){
         string registro;
@@ -105,10 +112,14 @@ void Usuarios(){
         cout << "   Puesto: " << registro << endl;
         getline(leer,registro);
     }
+    string opc;
+    cout << "\n Ingrese cualquier tecla... ";
+    cin >> opc;
 }
+
 string Menu(string nick){
-    bool run = true;
-    while(run){
+    while(true){
+        system("cls");
         string opc;
         cout << "\n ------  Bienvenido "  << nick << " ------" << endl;
         cout << "\n   1.-Revisar las maquinas" << endl;
@@ -123,100 +134,98 @@ string Menu(string nick){
             Usuarios();
         else if(opc == "3")
             Perfil(nick);
-        else if(opc == "3")
-            run=false;
+        else if(opc == "4"){
+            system("cls");
+            return ".";
+        }
         else
-            cout << "Reingrese un valor valido" << endl;
+            cout << "\n  ***Reingrese un valor valido***" << endl;
     }
 }
-string ingresar(){
+
+void ingresar(){
+
+    system("cls");
     ifstream ingresar("Datos//users.txt");
-    if(!ingresar){
-        system("cls");
-        cout << "\n  ***No se a podido acceder a el archivo users***" << endl;
-        return ".";
-    }
+
+    if(!ingresar){system("cls");cout << "\n  ***No se a podido acceder a el archivo users***" << endl;return;}
+
     string nick,pass,registro;
 
     cout << "\n ------  Ingreso  ------" << endl;
     cout << "\n   Nick: ";
     cin >> nick;
     int leng = nick.length();
-    if(leng > 8 || leng < 3){
-        system("cls");
-        cout << "\n  ***Nick de entre 3 a 8 de longitud***" << endl;
-        return ".";
-    }
+
+    if(leng > 8 || leng < 3){system("cls");cout << "\n  ***Nick de entre 3 a 8 de longitud***" << endl;return;}
+
     cout << "\n   Password: ";
     cin >> pass;
     leng = pass.length();
-    if(leng > 8 || leng < 3){
-        system("cls");
-        cout << "\n  ***Password de entre 3 a 8 de longitud***" << endl;
-        return ".";
-    }
+
+    if(leng > 8 || leng < 3){system("cls");cout << "\n  ***Password de entre 3 a 8 de longitud***" << endl;return;}
+
     while (!ingresar.eof()){
         getline(ingresar,registro);
         if(nick==registro){
             getline(ingresar,registro);
+            getline(ingresar,registro);
             if(pass==registro){
                 system("cls");
-                cout << "Ingreso..."<< endl;
                 Menu(nick);
+                return;
             }
             system("cls");
-            cout << "Contraseña incorrecta" << endl;
-            return ".";
+            cout << "\n  ***Contraseña incorrecta***" << endl;
+            return;
         }
         getline(ingresar,registro);
     }
     system("cls");
-    cout << "Usted no esta registrado" << endl;
-    return ".";
+    cout << "\n  ***Usted no esta registrado***" << endl;
+    return;
 
     ingresar.close();
 
 }
+
 void registrarse(){
+
+    system("cls");
     ifstream leer("Datos//users.txt");
-    ofstream registrar("Datos//aux.txt");
-    if(!leer){
-        system("cls");
-        cout << "\n  ***No se a podido acceder a el archivo users***" << endl;
-        return;
-    }
-    string nick,pass,registro;
+    ofstream registrar("aux.txt");
+
+    if(!registrar){system("cls");cout << "\n  ***No se a podido acceder a el archivo users***" << endl;return;}
+
+    string nick,pass,puesto,registro;
+
     cout << "\n ------  Registro  -----" << endl;
-    cout << "\n   *Presionar 1 para ir al menu*" << endl;
-    cout << "   *Presionar 2 para continuar*\n" << endl;
-    cout << "   ";
-    string ingreso;
-    cin >> ingreso;
-    if (ingreso=="1"){system("cls");return;}
     cout << "\n   Nick: ";
     cin >> nick;
+    cout << "\n   Puesto: ";
+    cin >> puesto;
     cout << "\n   Password: ";
     cin >> pass;
-    cout << (!leer.eof());
+
     while (!leer.eof()){
         getline(leer,registro);
-        if(nick==registro){
-                system("cls");
-            cout << "\n  ***El nombre de usuario ya esta registrado***"<< endl;
-            return registrarse();
-        }
+        registrar<<registro;
     }
-    while (!leer.eof()){
-        getline(leer,registro);
-        registrar << registro;
-    }
+
+    registrar << nick;
+    registrar << puesto;
+    registrar << pass;
+
+    remove("Datos//users.txt");
+    rename("Datos//aux.txt","Datos//users.txt");
+
+    leer.close();
+    registrar.close();
 }
 void bienvenido(){
     system("color F0");
-    bool running;
     string opcion;
-    running = true;
-    while(running){
+    while(true){
         cout << "\n ------  M  C  M  ------" << endl;
         cout << "\n   1.- Ingresar" << endl;
         cout << "\n   2.- Registrarse" << endl;
@@ -224,29 +233,20 @@ void bienvenido(){
         cout << "\n   4.- Salir" << endl;
         cout << "\n   Ingresar su opcion: ";
         cin >> opcion;
-        if(opcion == "1"){
-            system("cls");
-            string a;
-            a = ingresar();
-            if(a != ".")
-                pedido(a);
-        }
-        else if(opcion == "2"){
-            system("cls");
+        if(opcion == "1")
+            ingresar();
+        else if(opcion == "2")
             registrarse();
-        }
-        else if(opcion == "3"){
-            system("cls");
+        else if(opcion == "3")
             opciones();
-        }
         else if(opcion == "4"){
             system("cls");
-            cout << "Gracias por usar MCM" << endl;
-            running = false;
+            cout << "\n\n  Gracias por usar MCM\n" << endl;
+            return;
         }
         else{
             system("cls");
-            cout << "***Reingrese una opcion valida de entre 1 y 4***" << endl;
+            cout <<"\n  ***Reingrese una opcion valida de entre 1 y 4***" << endl;
         }
     }
 }

@@ -1,6 +1,9 @@
 Ruben
+Usuario
 123
 Andres
+Supervisor
 213
 Juan
+Planer
 312

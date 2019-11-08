@@ -3,9 +3,11 @@
 	<iostream>
 	<fstream>
 
-1572019475 source:c:\users\alumno-g\downloads\primerproyecto-master\proyecto final\main.cpp
+1573228272 source:c:\users\alumno-g\downloads\primerproyecto-master\proyecto final\main.cpp
 	<iostream>
 	<fstream>
+	<cstdlib>
+	<string>
 
 1572019512 source:c:\users\alumno-g\downloads\primerproyecto-master\proyecto final\src\menu.cpp
 	"menu.h"
