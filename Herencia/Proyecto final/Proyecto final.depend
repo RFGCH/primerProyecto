@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1571844697 source:d:\trabajos\proyecto final\main.cpp
+	<iostream>
+	<fstream>
+
+1573831632 source:c:\users\alumno-g\downloads\primerproyecto-master\proyecto final\main.cpp
+	<iostream>
+	<fstream>
+	<cstdlib>
+	<string>
+
+1572019512 source:c:\users\alumno-g\downloads\primerproyecto-master\proyecto final\src\menu.cpp
+	"menu.h"
+
+1572019924 c:\users\alumno-g\downloads\primerproyecto-master\proyecto final\include\menu.h
+	<string>
+
+1572755876 source:c:\users\rubén felix\downloads\primerproyecto-master\proyecto final\main.cpp
+	<iostream>
+	<fstream>
+
+1573051335 source:c:\users\alumno-e\downloads\primerproyecto-master\proyecto final\main.cpp
+	<iostream>
+	<fstream>
+	<stdlib.h>
+
+1573833194 source:c:\users\alumno-g\downloads\primerproyecto-master\proyecto final\src\persona.cpp
+	"Persona.h"
+
+1573833229 c:\users\alumno-g\downloads\primerproyecto-master\proyecto final\include\persona.h
+	<iostream>
+
