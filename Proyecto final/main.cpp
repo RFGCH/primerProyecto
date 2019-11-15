@@ -93,7 +93,6 @@ void Maquinas(string nick){
 }
 
 void Perfil(string nick){
-
     ifstream leer("Datos//users.txt");
     string usuario;
     while(nick != usuario){
@@ -220,7 +219,7 @@ void registrarse(){
     registrar.close();
 
     remove("Datos//users.txt");
-    rename("Datos/codigofacilito.txt","Datos//users.txt");
+    rename("Datos//codigofacilito.txt","Datos//users.txt");
 
 }
 void bienvenido(){
