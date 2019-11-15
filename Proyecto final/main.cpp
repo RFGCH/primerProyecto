@@ -110,6 +110,7 @@ void Usuarios(){
         getline(leer,registro);
         cout << "   Puesto: " << registro << endl;
         getline(leer,registro);
+        getline(leer,registro);
     }
     string opc;
     cout << "\n Ingrese cualquier tecla... ";
@@ -208,6 +209,14 @@ void registrarse(){
 
     while (!leer.eof()){
         getline(leer,registro);
+        if(registro==nick){
+            leer.close();
+            registrar.close();
+            remove("Datos//codigofacilito.txt");
+            system("cls");
+            cout << "\n  *** El nick ya esta registrado*** " << endl;
+            return;
+        }
         registrar<<registro + "\n";
     }
 
@@ -220,6 +229,7 @@ void registrarse(){
 
     remove("Datos//users.txt");
     rename("Datos//codigofacilito.txt","Datos//users.txt");
+    system("cls");
 
 }
 void bienvenido(){
