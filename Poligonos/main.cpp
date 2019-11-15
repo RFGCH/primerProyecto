@@ -3,27 +3,24 @@
 using namespace std;
 
 class Poligon{
-
-public:
-    int width,height;
-    Poligon():width(0),height(0) {}
+   private:
+    int width, height;
+   public:
+    Poligon():width(0),height(0) {} //Constructor sin argumentos
     Poligon(int a,int b):width(a),height(b) {}
     int area (void){return 0;}
     void printarea(){
-        cout << this ->area() << "\n" ;
-    }
-    void print(){
-        cout << width << endl;
-        cout << height << endl;
-    }
+    cout << this ->area() << "\n" ;
+  }
 };
 
 class ArrayPoligons{
 
+    Poligon *arr;
     int tam;
 
     void redimensionar(int t){
-        Poligon *aux = new Poligon [t];
+        Poligon *aux = new Poligon [tam=t];
         for(int i=0;i<t;i++)
             aux[i]=arr[i];
         delete [] arr;
@@ -31,7 +28,6 @@ class ArrayPoligons{
     }
 
 public:
-    Poligon *arr;
 
     ArrayPoligons(){tam=0;arr = new Poligon [0];}
     ArrayPoligons(Poligon *a, int s){
@@ -50,23 +46,23 @@ public:
         delete [] arr;
     }
     void insfnl(Poligon a){
-        tam++;
-        redimensionar(tam);
+        redimensionar(tam+1);
         arr[tam-1]=a;
     }
     void insertar(Poligon a,int p){
-        tam++;
-        Poligon *aux = new Poligon [tam];
-        for(int i = 0;i<tam;i++){
-            if(i+1==p)
-                i++;
-            aux[i]=arr[i];
-        }
-        delete [] arr;
-        arr=aux;
-        aux[p-1]=a;
+        redimensionar(tam+1);
+        for(int i=tam; i>p ; i-- )
+            arr[i+1]=arr[i];
+        arr[p-1]=a;
     }
-    void
+    void eliminar(){
+        redimensionar(tam-1);
+    }
+    void elimp(int p){
+       for(int i = p-1;i<tam; i++)
+            arr[i]=arr[i+1];
+        redimensionar(tam-1);
+    }
 };
 
 
@@ -76,10 +72,9 @@ int main()
     Poligon b(6,5);
     Poligon c[2] = {a,b};
     ArrayPoligons h(c,2);
-
     ArrayPoligons r = h;
     Poligon t(7,6);
     h.insertar(t,3);
-    cout << "Hello world!" << endl;
+    h.elimp(2);
     return 0;
 }
