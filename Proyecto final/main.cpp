@@ -2,6 +2,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <string>
+#include <arr.h>
 
 using namespace std;
 /*
@@ -68,6 +69,47 @@ class Maquina{
     }
 };
 */
+class Persona{
+protected:
+
+    string nombre,password;
+
+public:
+
+    Persona(string nombre,string password)
+        : nombre(nombre),password(password)
+    {}
+
+
+};
+class Trabajador:protected Persona{
+
+protected:
+
+    Trabajador():
+        Persona(nombre,password)
+    {}
+
+};
+class Supervisor:protected Persona{
+
+protected:
+
+    Supervisor():
+        Persona(nombre,password)
+    {}
+
+};
+class Planner:protected Persona{
+
+protected:
+
+    Planner():
+        Persona(nombre,password)
+    {}
+
+};
+
 void opciones(){
     system("cls");
 }
@@ -224,12 +266,13 @@ void registrarse(){
     registrar << puesto+"\n";
     registrar << pass+"\n";
 
+    system("cls");
     leer.close();
     registrar.close();
 
     remove("Datos//users.txt");
     rename("Datos//codigofacilito.txt","Datos//users.txt");
-    system("cls");
+    
 
 }
 void bienvenido(){
@@ -264,6 +307,36 @@ void bienvenido(){
 
 int main()
 {
+
+    ifstream leer("Datos//users.txt");
+    int tam;
+    while(!leer.eof()){
+        string registro
+        getline(leer,registro);
+        tam++;
+    }
+    leer.close();
+    tam/=3;
+    arr<Trabajador> a1();
+    arr<Supervisor> a2();
+    arr<Planner> a3();
+    ifstream leer2("Datos//users.txt");
+    while(!leer2.eof()){
+        string nombre,pass,rango;
+        getline(leer,nombre);
+        getline(leer,pass);
+        getline(leer,rango);
+        if(rango=="Trabajador"){
+            a1.insertar(Trabajador(nombre,pass));
+        }
+        else if(rango=="Supervisor"){
+            a2.insertar(Supervisor(nombre,pass));
+        }
+        else{
+            a3.insertar(Planner(nombre,pass));
+        }
+    }
+    leer2.close();
 
     bienvenido();
 
