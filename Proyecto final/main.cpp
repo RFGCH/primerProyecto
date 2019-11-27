@@ -10,39 +10,30 @@ class Maquina{
 
   private:
 
-    string nombre,codigo,clase;
-    int datos,nro;
+    string codigo, resumen, descripcion;
 
   public:
 
-    Maquina(int nro){
-        ifstream("Datos//maquinas");
-        getline(leer,nombre);
-        getline(leer,codigo);
-        getline(leer,clase);
-        getline(leer,datos);
+    Maquina(string codigo, string resumen, string descripcion)
+        : codigo(codigo), resumen(resumen), descripcion(descripcion)
+    {
     }
+    
     //function get
-    string getnombre()const{
-        return nombre;
-    }
     string getcodigo()const{
         return codigo;
-    }
-    string getclase()const{
-        return clase;
     }
     string getresumen()const{
         return resumen;
     }
     string getdescripcion()const{
         return descripcion;
-    }
+    
     //function set
-    void setnombre(string nombre){
-       this -> nombre = nombre;
-    }
     void setcodigo(string codigo){
+       this -> codigo = codigo;
+    }
+    void setcodigoa(string codigo){
         this -> codigo = codigo;
     }
     void setclase(string clase){
